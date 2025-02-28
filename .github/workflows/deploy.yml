@@ -46,7 +46,7 @@ jobs:
           source: "docker-compose.yml"
           target: "/home/ubuntu/frontend"
 
-      - name: Deploy frontend (8086)
+- name: Deploy frontend (8086)
   uses: appleboy/ssh-action@v1.2.1
   with:
     host: ${{ secrets.HOST_SERVER }}
@@ -56,8 +56,6 @@ jobs:
     script: |
       cd /home/ubuntu/frontend
       echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login --username ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
-
-      # อัปเดต frontend ปัจจุบันที่รันอยู่ (พอร์ต 8086)
       docker compose pull
       docker compose up -d
 
@@ -75,4 +73,22 @@ jobs:
       # อัปเดต frontend ใหม่ที่พอร์ต 9999
       docker-compose -f docker-compose-prod.yml pull
       docker-compose -f docker-compose-prod.yml up -d
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
