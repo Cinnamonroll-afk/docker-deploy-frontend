@@ -4,6 +4,7 @@ name: Deploy frontend application
   push:
     branches:
       - main
+      - update-html-deployment
 
 jobs:
   docker:
